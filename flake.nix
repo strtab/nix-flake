@@ -16,14 +16,14 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # dotfiles = {
-    #   url = "path:.";
-    #   flake = false;
-    # };
+    dotfiles = {
+      url = "path:.";
+      flake = false;
+    };
     illogical-flake = {
       url = "github:strtab/illogical-flake/b6b9176131accdd2f3a3b655e30db828b95a98ef";
       inputs.nixpkgs.follows = "nixpkgs";
-      # inputs.dotfiles.follows = "dotfiles"; # Override to use your dotfiles
+      inputs.dotfiles.follows = "dotfiles"; # Override to use your dotfiles
     };
   };
 

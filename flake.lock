@@ -36,22 +36,14 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1769126799,
-        "narHash": "sha256-v/VwDphmB+pdp51d65feDAXYLxU3juUIOIvVVT43oP4=",
-        "ref": "refs/heads/main",
-        "rev": "1b4c439c3e8286809747becfc59461b484345bfa",
-        "revCount": 5856,
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/end-4/dots-hyprland"
+        "path": ".",
+        "type": "path"
       },
       "original": {
-        "ref": "refs/heads/main",
-        "rev": "1b4c439c3e8286809747becfc59461b484345bfa",
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/end-4/dots-hyprland"
-      }
+        "path": ".",
+        "type": "path"
+      },
+      "parent": []
     },
     "flake-compat": {
       "flake": false,
@@ -458,7 +450,9 @@
     },
     "illogical-flake": {
       "inputs": {
-        "dotfiles": "dotfiles",
+        "dotfiles": [
+          "dotfiles"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -582,6 +576,7 @@
     },
     "root": {
       "inputs": {
+        "dotfiles": "dotfiles",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "illogical-flake": "illogical-flake",
