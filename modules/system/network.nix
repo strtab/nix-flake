@@ -1,0 +1,78 @@
+{ pkgs, lib, ... }:
+let
+  v2rayAssets = pkgs.linkFarm "v2ray-assets" [
+    {
+      name = "geoip.dat";
+      path = "${pkgs.v2ray-geoip}/share/v2ray/geoip.dat";
+    }
+    {
+      name = "geosite.dat";
+      path = "${pkgs.v2ray-domain-list-community}/share/v2ray/geosite.dat";
+    }
+  ];
+in
+{
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp14s0.useDHCP = lib.mkDefault true;
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = false;
+
+  networking = {
+    hostName = "moonveil";
+
+    hosts = {
+      "127.0.0.1" = [
+        "lo"
+        "localhost"
+      ];
+      "192.168.1.140" = [ "homelab" ];
+      "192.168.1.123" = [ "zabbix-server" ];
+      "77.110.111.143" = [ "cloud" ];
+    };
+
+    # Open ports in the firewall.
+    # networking.firewall.allowedTCPPorts = [ ... ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+    # Or disable the firewall altogether.
+    firewall.enable = false;
+
+    networkmanager.enable = true; # Easiest to use and most distros use this by default.
+
+    networkmanager.plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    kdePackages.networkmanager-qt
+    networkmanagerapplet
+    xray # needed for v2raya
+    openvpn
+    openssh
+  ];
+
+  services.v2raya = {
+    enable = true;
+  };
+
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.systemd1.manage-units" &&
+          action.lookup("unit") == "v2raya.service") {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+
+  systemd.services.v2raya.serviceConfig.ExecStart = lib.mkForce ''
+    ${pkgs.v2raya}/bin/v2raya \
+      --log-disable-timestamp \
+      --v2ray-bin ${pkgs.xray}/bin/xray \
+      --v2ray-assetsdir ${v2rayAssets}
+  '';
+}
