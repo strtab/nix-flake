@@ -39,6 +39,7 @@ in
     ];
   };
 
+  # Exclude kde packages
   environment.plasma6.excludePackages = with pkgs; [
     kdePackages.systemsettings
     kdePackages.kdebugsettings
@@ -61,12 +62,10 @@ in
 
   environment.systemPackages = with pkgs; [
     ### Gui
-    zathura
+    zathura # pdf reader
     obsidian
-    qbittorrent
+    qbittorrent # torrent client
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default # browser
-    wayland-utils
-    wl-clipboard
     alacritty
     nwjs
     fontconfig # fontconfig
@@ -74,6 +73,7 @@ in
     cliphist # cliphist
     xdg-user-dirs # xdg-user-dirs
 
+    # Utils for screenshoting
     grim
     swappy
     slurp
@@ -86,12 +86,17 @@ in
     kdePackages.ffmpegthumbs # Video preview for dolphin
     kdePackages.kdialog
 
+    # Wayland
+    wayland-utils
+    wl-clipboard
+
     ### themes
     gruvbox-plus-icons # Icon pack
     bibata-cursors
 
     ### Cli
     uutils-coreutils-noprefix # coreutils
+    television
     rsync # rsync
     bc # calc
     curlFull # curl
@@ -114,8 +119,10 @@ in
     inetutils # network utils
     dex # run applications with *.desktop file
     cmake
+    i2c-tools
 
     ### Archivers
+    # also, kde has ark
     unzip
     gzip
     unrar

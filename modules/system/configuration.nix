@@ -36,16 +36,19 @@
     rtkit.enable = true;
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Experimental = true;
-        FastConnectable = false;
-      };
-      Policy = {
-        AutoEnable = true;
+  hardware = {
+    i2c.enable = true;
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        General = {
+          Experimental = true;
+          FastConnectable = false;
+        };
+        Policy = {
+          AutoEnable = true;
+        };
       };
     };
   };
@@ -120,7 +123,8 @@
   users.users.user = {
     isNormalUser = true;
     extraGroups = [
-      "wheel"
+      "wheel" # sudo capabilities
+      "i2c" # brightness control
       "networkmanager"
     ];
     shell = pkgs.zsh;
