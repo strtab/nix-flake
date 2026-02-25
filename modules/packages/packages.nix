@@ -96,7 +96,6 @@ in
 
     ### Cli
     uutils-coreutils-noprefix # coreutils
-    television
     rsync # rsync
     bc # calc
     curlFull # curl
