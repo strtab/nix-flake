@@ -62,6 +62,7 @@ in
 
   environment.systemPackages = with pkgs; [
     ### Gui
+    wpsoffice # office package
     zathura # pdf reader
     obsidian
     qbittorrent # torrent client
@@ -104,6 +105,7 @@ in
     jq # jq
     gh # github cli
     stow
+    nmap
     neovim
     git
     eza
