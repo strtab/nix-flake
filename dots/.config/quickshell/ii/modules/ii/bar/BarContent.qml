@@ -136,17 +136,17 @@ Item { // Bar content region
             Workspaces {
                 id: workspacesWidget
                 Layout.fillHeight: true
-                MouseArea {
-                    // Right-click to toggle overview
-                    anchors.fill: parent
-                    acceptedButtons: Qt.RightButton
-
-                    onPressed: event => {
-                        if (event.button === Qt.RightButton) {
-                            GlobalStates.overviewOpen = !GlobalStates.overviewOpen;
-                        }
-                    }
-                }
+                // MouseArea {
+                //     // Right-click to toggle overview
+                //     anchors.fill: parent
+                //     acceptedButtons: Qt.RightButton
+                //
+                //     onPressed: event => {
+                //         if (event.button === Qt.RightButton) {
+                //             GlobalStates.overviewOpen = !GlobalStates.overviewOpen;
+                //         }
+                //     }
+                // }
             }
         }
 
@@ -179,10 +179,10 @@ Item { // Bar content region
                     Layout.alignment: Qt.AlignVCenter
                 }
 
-                BatteryIndicator {
-                    visible: (root.useShortenedForm < 2 && Battery.available)
-                    Layout.alignment: Qt.AlignVCenter
-                }
+                // BatteryIndicator {
+                //     visible: (root.useShortenedForm < 2 && Battery.available)
+                //     Layout.alignment: Qt.AlignVCenter
+                // }
             }
         }
     }
@@ -284,11 +284,11 @@ Item { // Bar content region
                             color: rightSidebarButton.colText
                         }
                     }
-                    HyprlandXkbIndicator {
-                        Layout.alignment: Qt.AlignVCenter
-                        Layout.rightMargin: indicatorsRowLayout.realSpacing
-                        color: rightSidebarButton.colText
-                    }
+                    // HyprlandXkbIndicator {
+                    //     Layout.alignment: Qt.AlignVCenter
+                    //     Layout.rightMargin: indicatorsRowLayout.realSpacing
+                    //     color: rightSidebarButton.colText
+                    // }
                     Revealer {
                         reveal: Notifications.silent || Notifications.unread > 0
                         Layout.fillHeight: true
