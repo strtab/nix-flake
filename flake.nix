@@ -21,7 +21,7 @@
       flake = false;
     };
     illogical-flake = {
-      url = "github:strtab/illogical-flake/b6b9176131accdd2f3a3b655e30db828b95a98ef";
+      url = "github:strtab/illogical-flake/a261d072bb9cb743e19870a6b60c55428101af35";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.dotfiles.follows = "dotfiles"; # Override to use your dotfiles
     };

@@ -1,4 +1,4 @@
-#!/nix/store/5p86w1968gs5abgqkj9wv5gccxpy253c-bash-interactive-5.3p3/bin/bash
+#!/usr/bin/env bash
 
 QUICKSHELL_CONFIG_NAME="ii"
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -10,7 +10,7 @@ STATE_DIR="$XDG_STATE_HOME/quickshell"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 term_alpha=100 #Set this to < 100 make all your terminals transparent
-# sleep 0 # idk i wanted some delay or colors dont get applied properly
+sleep 1 # idk i wanted some delay or colors dont get applied properly
 if [ ! -d "$STATE_DIR"/user/generated ]; then
   mkdir -p "$STATE_DIR"/user/generated
 fi
@@ -41,15 +41,35 @@ apply_term() {
     sed -i "s/${colorlist[$i]} #/${colorvalues[$i]#\#}/g" "$STATE_DIR"/user/generated/terminal/sequences.txt
   done
 
-  sed -i "s/\$alpha/$term_alpha/g" "$STATE_DIR/user/generated/terminal/sequences.txt"
+  # sed -i "s/\$alpha/$term_alpha/g" "$STATE_DIR/user/generated/terminal/sequences.txt"
+  #
+  # for file in /dev/pts/*; do
+  #   if [[ $file =~ ^/dev/pts/[0-9]+$ ]]; then
+  #     {
+  #     cat "$STATE_DIR"/user/generated/terminal/sequences.txt >"$file"
+  #     } & disown || true
+  #   fi
+  # done
+  
+  # Check if terminal escape sequence template exists
+  local script_file="$HOME/.config/alacritty/color_conventer.py"
 
-  for file in /dev/pts/* 2>/dev/null; do
-    if [[ $file =~ ^/dev/pts/[0-9]+$ ]]; then
-      {
-      cat "$STATE_DIR"/user/generated/terminal/sequences.txt >"$file"
-      } & disown || true
-    fi
-  done
+  if [ ! -f "$script_file" ]; then
+    echo "Script file not found for Alacritty. Skipping that."
+    return
+  fi
+
+  python3 $script_file &
+
+  # Check if terminal escape sequence template exists
+  local script_file="$HOME/.config/zathura/color_conventer.py"
+
+  if [ ! -f "$script_file" ]; then
+    echo "Script file not found for zathura. Skipping that."
+    return
+  fi
+
+  python3 $script_file &
 }
 
 apply_qt() {
@@ -68,5 +88,7 @@ else
   echo "Config file not found at $CONFIG_FILE. Applying terminal theming by default."
   apply_term &
 fi
+
+wait 
 
 # apply_qt & # Qt theming is already handled by kde-material-colors

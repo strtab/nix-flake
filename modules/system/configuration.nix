@@ -101,7 +101,8 @@
   };
 
   programs = {
-    zsh.enable = true;
+    # zsh.enable = true;
+    fish.enable = true;
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
@@ -127,7 +128,8 @@
       "i2c" # brightness control
       "networkmanager"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
+    # shell = pkgs.zsh;
   };
 
   zramSwap.enable = true;

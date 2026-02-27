@@ -103,48 +103,48 @@ Scope { // Scope
                     }
                 }
 
-                RippleButton { // Close button
-                    id: closeButton
-                    focus: cheatsheetRoot.visible
-                    implicitWidth: 40
-                    implicitHeight: 40
-                    buttonRadius: Appearance.rounding.full
-                    anchors {
-                        top: parent.top
-                        right: parent.right
-                        topMargin: 20
-                        rightMargin: 20
-                    }
-
-                    onClicked: {
-                        cheatsheetRoot.hide();
-                    }
-
-                    contentItem: MaterialSymbol {
-                        anchors.centerIn: parent
-                        horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize: Appearance.font.pixelSize.title
-                        text: "close"
-                    }
-                }
+                // RippleButton { // Close button
+                //     id: closeButton
+                //     focus: cheatsheetRoot.visible
+                //     implicitWidth: 40
+                //     implicitHeight: 40
+                //     buttonRadius: Appearance.rounding.full
+                //     anchors {
+                //         top: parent.top
+                //         right: parent.right
+                //         topMargin: 20
+                //         rightMargin: 20
+                //     }
+                //
+                //     onClicked: {
+                //         cheatsheetRoot.hide();
+                //     }
+                //
+                //     contentItem: MaterialSymbol {
+                //         anchors.centerIn: parent
+                //         horizontalAlignment: Text.AlignHCenter
+                //         font.pixelSize: Appearance.font.pixelSize.title
+                //         text: "close"
+                //     }
+                // }
 
                 ColumnLayout { // Real content
                     id: cheatsheetColumnLayout
                     anchors.centerIn: parent
                     spacing: 10
 
-                    Toolbar {
-                        Layout.alignment: Qt.AlignHCenter
-                        enableShadow: false
-                        ToolbarTabBar {
-                            id: tabBar
-                            tabButtonList: root.tabButtonList
-
-                            Synchronizer on currentIndex {
-                                property alias source: swipeView.currentIndex
-                            }
-                        }
-                    }
+                    // Toolbar {
+                    //     Layout.alignment: Qt.AlignHCenter
+                    //     enableShadow: false
+                    //     ToolbarTabBar {
+                    //         id: tabBar
+                    //         tabButtonList: root.tabButtonList
+                    //
+                    //         Synchronizer on currentIndex {
+                    //             property alias source: swipeView.currentIndex
+                    //         }
+                    //     }
+                    // }
 
                     SwipeView { // Content pages
                         id: swipeView
@@ -157,8 +157,8 @@ Scope { // Scope
                             Persistent.states.cheatsheet.tabIndex = currentIndex;
                         }
 
-                        implicitWidth: Math.max.apply(null, contentChildren.map(child => child.implicitWidth || 0))
-                        implicitHeight: Math.max.apply(null, contentChildren.map(child => child.implicitHeight || 0))
+                        // implicitWidth: Math.max.apply(null, contentChildren.map(child => child.implicitWidth || 0))
+                        // implicitHeight: Math.max.apply(null, contentChildren.map(child => child.implicitHeight || 0))
 
                         clip: true
                         layer.enabled: true

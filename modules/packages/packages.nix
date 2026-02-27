@@ -49,6 +49,7 @@ in
     kdePackages.discover
     kdePackages.gwenview
     kdePackages.kwrited
+    kdePackages.khelpcenter
 
     kdePackages.kwalletmanager
     kdePackages.kwallet
@@ -62,7 +63,6 @@ in
 
   environment.systemPackages = with pkgs; [
     ### Gui
-    wpsoffice # office package
     zathura # pdf reader
     obsidian
     qbittorrent # torrent client
@@ -86,6 +86,7 @@ in
     kdePackages.kio-extras # Rar preview for dolphin
     kdePackages.ffmpegthumbs # Video preview for dolphin
     kdePackages.kdialog
+    kdePackages.bluedevil
 
     # Wayland
     wayland-utils
@@ -96,12 +97,14 @@ in
     bibata-cursors
 
     ### Cli
+    pandoc
     uutils-coreutils-noprefix # coreutils
     rsync # rsync
     bc # calc
     curlFull # curl
     wget # wget
     ripgrep # ripgrep
+    fd # alternative to find
     jq # jq
     gh # github cli
     stow
@@ -120,6 +123,7 @@ in
     inetutils # network utils
     dex # run applications with *.desktop file
     cmake
+    gnumake
     i2c-tools
 
     ### Archivers
