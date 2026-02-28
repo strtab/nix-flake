@@ -1,4 +1,4 @@
-#!/nix/store/5p86w1968gs5abgqkj9wv5gccxpy253c-bash-interactive-5.3p3/bin/bash
+#!/usr/bin/env bash
 
 QUICKSHELL_CONFIG_NAME="ii"
 XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -143,6 +143,7 @@ EOF
 
 set_wallpaper_path() {
     local path="$1"
+    echo "Setting wallpaper path..."
     if [ -f "$SHELL_CONFIG_FILE" ]; then
         jq --arg path "$path" '.background.wallpaperPath = $path' "$SHELL_CONFIG_FILE" > "$SHELL_CONFIG_FILE.tmp" && mv "$SHELL_CONFIG_FILE.tmp" "$SHELL_CONFIG_FILE"
     fi
@@ -150,6 +151,7 @@ set_wallpaper_path() {
 
 set_thumbnail_path() {
     local path="$1"
+    echo "Setting thumbnail path..."
     if [ -f "$SHELL_CONFIG_FILE" ]; then
         jq --arg path "$path" '.background.thumbnailPath = $path' "$SHELL_CONFIG_FILE" > "$SHELL_CONFIG_FILE.tmp" && mv "$SHELL_CONFIG_FILE.tmp" "$SHELL_CONFIG_FILE"
     fi
@@ -161,6 +163,12 @@ switch() {
     type_flag="$3"
     color_flag="$4"
     color="$5"
+
+    echo "imgpath:     $imgpath"
+    echo "mode_flag:   $mode_flag"
+    echo "type_flag:   $type_flag"
+    echo "color_flag:  $color_flag"
+    echo "color:       $color"
 
     # Start Gemini auto-categorization if enabled
     aiStylingEnabled=$(jq -r '.background.clock.cookie.aiStyling' "$SHELL_CONFIG_FILE")
@@ -177,14 +185,14 @@ switch() {
 
     if [[ "$color_flag" == "1" ]]; then
         matugen_args=(color hex "$color")
-        generate_colors_material_args=(--color "$color")
+        generate_colors_material_args=(--color="$color")
     else
         if [[ -z "$imgpath" ]]; then
             echo 'Aborted'
             exit 0
         fi
 
-        check_and_prompt_upscale "$imgpath" &
+        # check_and_prompt_upscale "$imgpath" &
         kill_existing_mpvpaper
 
         if is_video "$imgpath"; then
@@ -297,6 +305,7 @@ switch() {
 
     matugen "${matugen_args[@]}"
     source "$(eval echo $ILLOGICAL_IMPULSE_VIRTUAL_ENV)/bin/activate"
+    echo "Run $SCRIPT_DIR/generate_colors_material.py ${generate_colors_material_args[@]}"
     python3 "$SCRIPT_DIR/generate_colors_material.py" "${generate_colors_material_args[@]}" \
         > "$STATE_DIR"/user/generated/material_colors.scss
     "$SCRIPT_DIR"/applycolor.sh
@@ -319,9 +328,10 @@ main() {
     get_type_from_config() {
         jq -r '.appearance.palette.type' "$SHELL_CONFIG_FILE" 2>/dev/null || echo "auto"
     }
-    get_accent_color_from_config() {
-        jq -r '.appearance.palette.accentColor' "$SHELL_CONFIG_FILE" 2>/dev/null || echo ""
-    }
+    # IT'S FUCKING BREAK ALL CODE.
+    # get_accent_color_from_config() {
+    #     jq -r '.appearance.palette.accentColor' "$SHELL_CONFIG_FILE" 2>/dev/null || echo ""
+    # }
     set_accent_color() {
         local color="$1"
         jq --arg color "$color" '.appearance.palette.accentColor = $color' "$SHELL_CONFIG_FILE" > "$SHELL_CONFIG_FILE.tmp" && mv "$SHELL_CONFIG_FILE.tmp" "$SHELL_CONFIG_FILE"

@@ -59,7 +59,7 @@ apply_term() {
     return
   fi
 
-  python3 $script_file &
+  python3 $script_file &>/dev/null &
 
   # Check if terminal escape sequence template exists
   local script_file="$HOME/.config/zathura/color_conventer.py"
@@ -69,7 +69,7 @@ apply_term() {
     return
   fi
 
-  python3 $script_file &
+  python3 $script_file &>/dev/null &
 }
 
 apply_qt() {

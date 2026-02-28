@@ -120,6 +120,7 @@ in
     ranger
     lshw
     hwinfo
+    dig
     inetutils # network utils
     dex # run applications with *.desktop file
     cmake

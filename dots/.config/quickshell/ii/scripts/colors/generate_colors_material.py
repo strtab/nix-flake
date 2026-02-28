@@ -1,4 +1,4 @@
-#!/nix/store/2hn2c4nnj3pcmjrk3wpwc6nyhnsja2sp-python3-3.13.11-env/bin/python3
+#!/usr/bin/env python3
 import argparse
 import math
 import json
