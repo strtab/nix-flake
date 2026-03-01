@@ -108,7 +108,6 @@ in
     jq # jq
     gh # github cli
     stow
-    nmap
     neovim
     git
     eza
@@ -121,6 +120,7 @@ in
     lshw
     hwinfo
     dig
+    nmap
     inetutils # network utils
     dex # run applications with *.desktop file
     cmake
@@ -146,10 +146,14 @@ in
     pulseaudio # pulseaudio utils
 
     ### Langs
+    regex
     nodejs
     python3
+    python313Packages.pip
     rustc
     cargo
+    luarocks
+    lua
     gcc
     go
   ];

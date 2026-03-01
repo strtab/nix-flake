@@ -132,6 +132,12 @@
     # shell = pkgs.zsh;
   };
 
-  zramSwap.enable = true;
+  zramSwap.enable = false;
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 12 * 1024;
+    }
+  ];
   system.stateVersion = "25.05";
 }
