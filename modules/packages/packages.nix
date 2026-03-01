@@ -146,7 +146,6 @@ in
     pulseaudio # pulseaudio utils
 
     ### Langs
-    regex
     nodejs
     python3
     python313Packages.pip
