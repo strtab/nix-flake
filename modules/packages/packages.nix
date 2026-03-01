@@ -65,6 +65,7 @@ in
     ### Gui
     zathura # pdf reader
     obsidian
+    anki # flashcard program
     qbittorrent # torrent client
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default # browser
     alacritty
