@@ -37,7 +37,8 @@
   };
 
   hardware = {
-    i2c.enable = true;
+    ksm.enable = true; # kernel same-page merging.
+    i2c.enable = true; # brightness control
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -71,9 +72,7 @@
       enable = true;
     };
 
-    v2raya.enable = true;
     blueman.enable = true;
-
     geoclue2.enable = true;
     upower.enable = true;
 
@@ -101,7 +100,6 @@
   };
 
   programs = {
-    # zsh.enable = true;
     fish.enable = true;
     hyprland = {
       enable = true;
@@ -116,6 +114,7 @@
       enable = true;
       enableSSHSupport = true;
     };
+
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
     mtr.enable = true;
@@ -129,14 +128,13 @@
       "networkmanager"
     ];
     shell = pkgs.fish;
-    # shell = pkgs.zsh;
   };
 
   zramSwap.enable = false;
   swapDevices = [
     {
       device = "/var/lib/swapfile";
-      size = 12 * 1024;
+      size = 20 * 1024;
     }
   ];
   system.stateVersion = "25.05";

@@ -17,7 +17,7 @@
     ];
     kernelParams = [
       "rw" # read write
-      "mitigations=off" # disable cpu security (more productive)
+      "mitigations=off" # disable cpu security (better performance)
       "video=HDMI-A-1"
       "video=LVDS-1:d" # disable monitor
     ];
