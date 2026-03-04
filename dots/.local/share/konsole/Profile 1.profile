@@ -9,4 +9,3 @@ Parent=FALLBACK/
 
 [Keyboard]
 KeyBindings=default
-

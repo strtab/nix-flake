@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   home-manager = {
+    backupFileExtension = "backup";
     useGlobalPkgs = true;
     sharedModules = [
       inputs.illogical-flake.homeManagerModules.default

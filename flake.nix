@@ -1,5 +1,5 @@
 {
-  description = "MoonVeil flake";
+  description = "Moon Veil flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.11";
@@ -36,12 +36,12 @@
     }@inputs:
     {
       nixosConfigurations.moonveil = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
           home-manager.nixosModules.home-manager
-          ./modules/system/configuration.nix
-          ./modules/packages/packages.nix
-          ./modules/home/illogical-impulce.nix
+          ./modules
+          ./pkgs
         ];
       };
     };

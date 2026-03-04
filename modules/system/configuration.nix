@@ -2,23 +2,10 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./bootloader.nix
-    ./network.nix
-    ./gpu.nix
+    ./hardware
+    ./network
+    ./boot
   ];
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowBroken = true;
-      nvidia.acceptLicense = true;
-    };
-    overlays = [
-      (final: prev: {
-        v2raya = prev.callPackage ../packages/v2raya.nix { lib = prev.lib; };
-      })
-    ];
-  };
 
   nix.settings = {
     substituters = [
@@ -38,7 +25,6 @@
 
   hardware = {
     ksm.enable = true; # kernel same-page merging.
-    i2c.enable = true; # brightness control
     bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -100,7 +86,10 @@
   };
 
   programs = {
+
     fish.enable = true;
+    nano.enable = false;
+
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
