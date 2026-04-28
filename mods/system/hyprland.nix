@@ -32,11 +32,11 @@
       enable = true;
       settings = {
         initial_session = {
-          command = "start-hyprland";
+          command = "start-hyprland &> /dev/null";
           user = config.var.username;
         };
         default_session = {
-          command = "start-hyprland";
+          command = "start-hyprland &> /dev/null";
           user = config.var.username;
         };
       };

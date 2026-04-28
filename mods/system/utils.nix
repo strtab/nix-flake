@@ -1,8 +1,4 @@
-{ config, pkgs, ... }:
-let
-  configDir = config.var.configDirectory;
-  autoUpgrade = config.var.autoUpgrade;
-in
+{ pkgs, ... }:
 {
   programs = {
     gnupg.agent.enable = true;
@@ -33,49 +29,29 @@ in
     zoxide
     ranger # file manager
     hwinfo # hardware info
+    pstree
     ffmpeg
-    neovim
     unrar
     unzip
     gzip
     unar
-    stow # config manager
-    tmux
     lsof
     vim
     git
-    eza
-    bat
-    fzf
     fd # alternative to find
     jq
 
-    # Dev
+    # Development
     pkg-config
-    kubectl
-    gnumake
-    cmake
-
-    # Langs
     luarocks
     python3
+    gnumake
     nodejs
     rustc
     cargo
+    cmake
     lua
     gcc
     go
   ];
-
-  system.autoUpgrade = {
-    enable = autoUpgrade;
-    dates = "04:00";
-    flake = "${configDir}";
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "--commit-lock-file"
-    ];
-    allowReboot = false;
-  };
 }

@@ -15,5 +15,7 @@
     kdePackages.dolphin-plugins
     kdePackages.dolphin # File manager
     kdePackages.ark # Work with file archivers
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.qtsvg
   ];
 }

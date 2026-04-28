@@ -1,5 +1,30 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
+  programs = {
+    nano.enable = false;
+    steam.enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    kubectl
+    neovim
+    stow # config manager
+    tmux
+    bat
+    fzf
+  ];
+
+  zramSwap.enable = false;
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 20 * 1024;
+    }
+  ];
+
+  console.font = "UniCyr_8x16";
+  time.timeZone = "Europe/Moscow";
+
   imports = [
     # Init
     ./hardware-configuration.nix
@@ -23,21 +48,5 @@
   ];
 
   home-manager.users."${config.var.username}" = import ./home.nix;
-
-  programs = {
-    nano.enable = false;
-    steam.enable = true;
-  };
-
-  zramSwap.enable = false;
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 20 * 1024;
-    }
-  ];
-
-  console.font = "UniCyr_8x16";
-  time.timeZone = "Europe/Moscow";
   system.stateVersion = "25.11";
 }

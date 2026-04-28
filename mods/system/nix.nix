@@ -3,9 +3,6 @@
   inputs,
   ...
 }:
-let
-  autoGarbageCollector = config.var.autoGarbageCollector;
-in
 {
   services.envfs.enable = true; # Dynamic populates contents of /bin
   programs = {
@@ -38,12 +35,6 @@ in
         "https://mirrors.ustc.edu.cn/nix-channels/store"
         # "https://cache.nixos.org"
       ];
-    };
-    gc = {
-      automatic = autoGarbageCollector;
-      persistent = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
     };
   };
 

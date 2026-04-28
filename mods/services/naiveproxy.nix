@@ -46,8 +46,18 @@ in
       Restart = "on-failure";
       RestartSec = "3s";
       DynamicUser = true;
+      LimitNOFILE = 2048;
     };
   };
+
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.systemd1.manage-units" &&
+          action.lookup("unit") == "naiveproxy.service") {
+        return polkit.Result.YES;
+      }
+    });
+  '';
 
   system.activationScripts.naiveproxyConfig = {
     text = ''

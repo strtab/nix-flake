@@ -1,9 +1,8 @@
-{ config, lib, ... }:
+{ lib, ... }:
 {
   config.var = {
     hostname = "moonveil";
     username = "user";
-    configDirectory = "/home/" + config.var.username + "/.flake"; # The path of the nixos configuration directory
 
     keyboardLayout = "en,ru";
 
@@ -11,9 +10,6 @@
       username = "strtab";
       email = "nixjoyer@gmail.com";
     };
-
-    autoUpgrade = false;
-    autoGarbageCollector = true;
   };
 
   # DON'T TOUCH THIS

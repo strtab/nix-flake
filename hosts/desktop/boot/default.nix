@@ -1,8 +1,9 @@
 {
+  imports = [
+    ../../../mods/services/plymouth
+  ];
+  boot.initrd.kernelModules = [ "i915" ];
   boot = {
-    plymouth = {
-      enable = true;
-    };
     loader = {
       systemd-boot = {
         enable = true;
@@ -17,13 +18,11 @@
     };
     kernelParams = [
       "rw" # read write
-      "quiet"
-      "udev.log_level=3"
-      "systemd.show_status=auto"
 
+      "i915.fastboot=1"
       "mitigations=off" # disable cpu security (better performance)
 
-      "video=HDMI-A-1"
+      "video=HDMI-A-1:1920x1080@75"
       "video=LVDS-1:d" # disable monitor
     ];
   };
