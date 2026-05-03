@@ -3,9 +3,12 @@
   imports = [
     ./variables.nix
 
+    # Shell
+    ../../home/shell
+    ../../home/shell/zsh.nix
+
     # System
-    ../../home/system/illogical-impulce.nix
-    ../../home/system/environments.nix
+    ../../home/system/illogical-impulce
   ];
 
   home = {

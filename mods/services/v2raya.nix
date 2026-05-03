@@ -1,16 +1,47 @@
 { pkgs, ... }:
-{
-  services.v2raya.package = pkgs.v2raya.overrideAttrs (old: {
+let
+  v2rayaOverride = pkgs.v2raya.overrideAttrs (old: rec {
     version = "2.2.7.5";
+
     src = pkgs.fetchFromGitHub {
       owner = "v2rayA";
       repo = "v2rayA";
-      tag = "v2.2.7.5";
-      hash = "sha256-gZ9vF1xwDZblBwG9U3X+aWFqcH7S6pIya8dvLorv5zk=";
+      tag = "v${version}";
+      hash = "sha256-aa/Eb+fZQ1hwm6H7wb7mr0b4tCu12Mhy14OXNjZUJ0Y=";
+      postFetch = "sed -i -e 's/npmmirror/yarnpkg/g' $out/gui/yarn.lock";
     };
-  });
 
-  services.v2raya.enable = true;
+    # update web derivation with new src/hashes
+    passthru = old.passthru // {
+      web = old.passthru.web.overrideAttrs (_: {
+        inherit src version;
+        offlineCache = pkgs.fetchYarnDeps {
+          yarnLock = "${src}/gui/yarn.lock";
+          hash = "sha256-g+hI9n+nfXAcuEpjvDDaHg/DfjtNusOaw3S6kC1QDn4=";
+        };
+      });
+    };
+
+    vendorHash = "sha256-uiURsB1V4IB77YKLu5gdaqw9Fuja6fC5adWYDE3OE+Q=";
+
+    # embed updated web build
+    preBuild = ''
+      cp -a ${passthru.web} server/router/web
+    '';
+
+    ldflags = [
+      "-s"
+      "-w"
+      "-X github.com/v2rayA/v2rayA/conf.Version=${version}"
+    ];
+  });
+in
+{
+  services.v2raya = {
+    enable = true;
+    package = v2rayaOverride;
+    cliPackage = pkgs.xray;
+  };
 
   security.polkit.extraConfig = ''
     polkit.addRule(function(action, subject) {

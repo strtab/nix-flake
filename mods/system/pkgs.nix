@@ -8,9 +8,9 @@
     zathura # Pdf reader
     obsidian # Markdown notes
     nomacs # Image viewer
+    haruna # Video viewer
     kitty # Terminal
     nwjs
-    vlc
 
     kdePackages.dolphin-plugins
     kdePackages.dolphin # File manager
@@ -18,4 +18,6 @@
     kdePackages.kdegraphics-thumbnailers
     kdePackages.qtsvg
   ];
+
+  xdg.menus.enable = true;
 }

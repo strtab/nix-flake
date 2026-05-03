@@ -1,9 +1,17 @@
+{ inputs, ... }:
 {
-  imports = [
-    ../../../mods/services/plymouth
-  ];
+  imports = [ inputs.plymouth-circle.nixosModules.default ];
   boot.initrd.kernelModules = [ "i915" ];
   boot = {
+    plymouthCircle = {
+      enable = true;
+      circle = {
+        red = 46;
+        green = 65;
+        blue = 75;
+        wavy = true;
+      };
+    };
     loader = {
       systemd-boot = {
         enable = true;

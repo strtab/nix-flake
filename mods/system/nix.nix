@@ -1,14 +1,11 @@
+{ inputs, ... }:
 {
-  config,
-  inputs,
-  ...
-}:
-{
+  system.copySystemConfiguration = true;
+
   services.envfs.enable = true; # Dynamic populates contents of /bin
   programs = {
-    nix-ld.enable = true; # Dynamic liblaries
     nix-index-database.comma.enable = true; # Comma
-    nh.enable = true; # Nix helper
+    nix-ld.enable = true; # Dynamic liblaries
   };
 
   nixpkgs.config = {
@@ -30,27 +27,11 @@
         "flakes"
       ];
       substituters = [
-        "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         "https://mirror.sjtu.edu.cn/nix-channels/store"
         "https://mirrors.ustc.edu.cn/nix-channels/store"
+        # "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         # "https://cache.nixos.org"
       ];
     };
   };
-
-  security.sudo.extraConfig = ''
-    Defaults timestamp_type=tty,timestamp_timeout=-1
-  '';
-
-  security.sudo.extraRules = [
-    {
-      users = [ config.var.username ];
-      commands = [
-        {
-          command = "/run/current-system/sw/bin/nixos-rebuild";
-          options = [ "NOPASSWD" ];
-        }
-      ];
-    }
-  ];
 }

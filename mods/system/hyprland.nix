@@ -7,15 +7,13 @@
 {
   xdg = {
     icons.fallbackCursorThemes = [ "Bibata-Modern-Classic" ];
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gnome
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-wlr
-        kdePackages.xdg-desktop-portal-kde
-      ];
-    };
+    portal.enable = true;
+    portal.extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+      kdePackages.xdg-desktop-portal-kde
+    ];
   };
 
   environment.sessionVariables = {
@@ -28,6 +26,7 @@
     geoclue2.enable = true;
     upower.enable = true;
     power-profiles-daemon.enable = true;
+
     greetd = {
       enable = true;
       settings = {

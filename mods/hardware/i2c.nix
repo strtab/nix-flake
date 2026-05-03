@@ -10,9 +10,7 @@
     ];
   };
 
-  hardware = {
-    i2c.enable = true;
-  };
+  hardware.i2c.enable = true;
 
   environment.systemPackages = with pkgs; [ i2c-tools ];
 

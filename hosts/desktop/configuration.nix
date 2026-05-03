@@ -2,7 +2,7 @@
 {
   programs = {
     nano.enable = false;
-    steam.enable = true;
+    # steam.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -22,7 +22,6 @@
     }
   ];
 
-  console.font = "UniCyr_8x16";
   time.timeZone = "Europe/Moscow";
 
   imports = [
@@ -41,6 +40,7 @@
     ./../../mods/system/fonts.nix
     ./../../mods/system/pkgs.nix
     ./../../mods/system/utils.nix
+    ./../../mods/system/tty.nix
 
     # Services
     ./../../mods/services/naiveproxy.nix

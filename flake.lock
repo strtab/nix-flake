@@ -36,11 +36,11 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "path": ".",
+        "path": "./home/system/illogical-impulce/",
         "type": "path"
       },
       "original": {
-        "path": ".",
+        "path": "./home/system/illogical-impulce/",
         "type": "path"
       },
       "parent": []
@@ -460,17 +460,17 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1777300273,
-        "narHash": "sha256-1cDcv5uMRZsLZ10hitk2UJ4wwK7wD4AuWbhjP02+OHk=",
+        "lastModified": 1777791428,
+        "narHash": "sha256-DPsn4sr/dRbTMGSAaormv4w9LUXtKzzjHMVSTi1mimw=",
         "owner": "strtab",
         "repo": "illogical-flake",
-        "rev": "54ab00cd02e64c4f6b2da5ea0e2b34274503b8c6",
+        "rev": "daee2afb151ab7b49ff037302d855a80a01bc2e6",
         "type": "gitlab"
       },
       "original": {
         "owner": "strtab",
         "repo": "illogical-flake",
-        "rev": "54ab00cd02e64c4f6b2da5ea0e2b34274503b8c6",
+        "rev": "daee2afb151ab7b49ff037302d855a80a01bc2e6",
         "type": "gitlab"
       }
     },
@@ -548,6 +548,22 @@
         "type": "github"
       }
     },
+    "plymouth-circle": {
+      "locked": {
+        "lastModified": 1777825975,
+        "narHash": "sha256-3ySGm5/Sz/oxRglX1D+niJ3sFmWdm52vhzLYHdQxU6M=",
+        "owner": "strtab",
+        "repo": "plymouth_theme_material_desing_circle",
+        "rev": "b15ef5bfe87d86c39b1c30aa28bbf08b2e8cde3c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "strtab",
+        "repo": "plymouth_theme_material_desing_circle",
+        "rev": "b15ef5bfe87d86c39b1c30aa28bbf08b2e8cde3c",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -603,6 +619,7 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "plymouth-circle": "plymouth-circle",
         "zen-browser": "zen-browser"
       }
     },

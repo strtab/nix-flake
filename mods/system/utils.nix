@@ -31,6 +31,7 @@
     hwinfo # hardware info
     pstree
     ffmpeg
+    ntfs3g
     unrar
     unzip
     gzip

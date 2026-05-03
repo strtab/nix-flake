@@ -9,5 +9,6 @@
 
   home.sessionVariables = {
     GOPATH = "$HOME/.go";
+    EDITOR = "nvim";
   };
 }

@@ -24,14 +24,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dotfiles = {
-      url = "path:.";
+      url = "path:./home/system/illogical-impulce/";
       flake = false;
     };
     illogical-flake = {
-      url = "gitlab:strtab/illogical-flake/54ab00cd02e64c4f6b2da5ea0e2b34274503b8c6";
+      url = "gitlab:strtab/illogical-flake/daee2afb151ab7b49ff037302d855a80a01bc2e6";
+      inputs.dotfiles.follows = "dotfiles";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.dotfiles.follows = "dotfiles"; # Override to use your dotfiles
     };
+    plymouth-circle.url = "github:strtab/plymouth_theme_material_desing_circle/b15ef5bfe87d86c39b1c30aa28bbf08b2e8cde3c";
   };
 
   outputs =
