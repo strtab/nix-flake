@@ -1,7 +1,5 @@
 { inputs, ... }:
 {
-  system.copySystemConfiguration = true;
-
   services.envfs.enable = true; # Dynamic populates contents of /bin
   programs = {
     nix-index-database.comma.enable = true; # Comma
