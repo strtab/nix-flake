@@ -1,6 +1,9 @@
 { pkgs, config, ... }:
 {
-  home.packages = with pkgs; [ nerd-fonts.symbols-only ];
+  home.packages = with pkgs; [
+    nerd-fonts.symbols-only
+    nerd-fonts.jetbrains-mono
+  ];
   programs.kitty = {
     enable = true;
     font = {
@@ -8,7 +11,7 @@
       # package = pkgs.googlesans-code;
       name = "family='GeistMono Nerd Font Mono' style=Regular features=-ss09";
       package = pkgs.nerd-fonts.geist-mono;
-      size = 16;
+      # size = 16;
     };
     shellIntegration.enableZshIntegration = true;
     shellIntegration.mode = "no-cursor";
@@ -16,11 +19,11 @@
     settings = {
       enable_audio_bell = false;
       confirm_os_window_close = 0;
-      window_padding_width = 20;
+      window_padding_width = 5;
       cursor_shape = "block";
       cursor_trail = 0;
       cursor_stop_blinking_after = 0;
-      symbol_map = "U+23F0-U+23FF Symbols Nerd Font Mono";
+      symbol_map = "U+23 JetBraindMonoNL Nerd Font";
       allow_hyperlinks = true;
       underline_hyperlinks = "always";
       show_hyprlink_target_on_hover = true;
