@@ -24,7 +24,7 @@
     geist.url = "github:strtab/Plasma-Geist-visual-style";
     geist.flake = false;
 
-    dotfiles.url = "gitlab:strtab/illogical-impulce-dots/4f308b4366f3f8d665ba76037be095a58541be52";
+    dotfiles.url = "gitlab:strtab/illogical-impulce-dots/01391a26dade15edc3c75297bfbc1fcd5c27fedb";
     dotfiles.flake = false;
     illogical-flake = {
       url = "gitlab:strtab/illogical-flake/910eba218abc31adab2e685233cd80e22e61b823";
