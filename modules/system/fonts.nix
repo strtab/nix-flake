@@ -8,6 +8,8 @@
       noto-fonts-cjk-serif
       noto-fonts
 
+      nerd-fonts.jetbrains-mono
+
       geist-font
     ];
 
