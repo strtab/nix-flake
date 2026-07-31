@@ -1,4 +1,5 @@
-# This module needed for brightness control.
+# This module needed for access all devices on an adapters (ecpecially for brightness control on external monitors).
+# https://www.kernel.org/doc/html/v5.4/i2c/dev-interface.html
 {
   config,
   pkgs,
@@ -7,7 +8,7 @@
 }:
 {
   options.i2c = {
-    enable = lib.mkEnableOption "Enable brightness control module" // {
+    enable = lib.mkEnableOption "Enable access all devices on an adapter from userspace" // {
       default = true;
     };
   };
