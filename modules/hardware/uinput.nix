@@ -12,7 +12,7 @@
     };
   };
   config = lib.mkIf config.uinput.enable {
-    users.users."${config.var.username}".extraGroups = [ "input" ];
+    users.users."${config.var.username}".extraGroups = [ "uinput" ];
     hardware.uinput.enable = true;
   };
 }
