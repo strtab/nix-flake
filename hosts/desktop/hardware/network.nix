@@ -44,7 +44,6 @@
 
     inetutils
     dnsutils
-    w3m-full
     curlFull
     rsync
     wget
