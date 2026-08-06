@@ -16,10 +16,6 @@
     };
   };
 
-  services = {
-    flatpak.enable = true;
-  };
-
   documentation = {
     enable = true;
     man.enable = true;
