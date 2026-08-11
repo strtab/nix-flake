@@ -9,7 +9,7 @@
     font = {
       # name = "family='Google Sans Code' variable_name=GoogleSansCode wght=440 MONO=1";
       # package = pkgs.googlesans-code;
-      name = "family='GeistMono Nerd Font Mono' style=Regular features=-ss09";
+      name = "family='GeistMono Nerd Font Mono' style=Medium-ss09";
       package = pkgs.nerd-fonts.geist-mono;
       # size = 16;
     };
@@ -86,46 +86,26 @@
   home.file."${config.xdg.configHome}/kitty/light-theme.auto.conf".text = ''
     # vim:ft=kitty
 
-    foreground                      #545464
-    background                      #fff9ee
-    selection_foreground            #43436c
-    selection_background            #c9cbd1
-
-    cursor                          #43436c
-    cursor_text_color               #f2ecbc
-
-    url_color                       #73a7bc
-
-    active_tab_foreground           #716e61
-    active_tab_background           #e5ddb0
-    inactive_tab_foreground         #8a8980
-    inactive_tab_background         #d5cea3
-
-    color0  #1f1f28
-    color8  #8a8980
-
-    color1  #c84053
-    color9  #d7474b
-
-    color2  #6f894e
-    color10 #6e915f
-
-    color3  #77713f
-    color11 #836f4a
-
-    color4  #4d699b
-    color12 #6693bf
-
-    color5  #b35b79
-    color13 #624c83
-
-    color6  #597b75
-    color14 #5e857a
-
-    color7  #545464
-    color15 #43436c
-
-    color16 #cc6d00
-    color17 #e82424
+    background #ffffff
+    foreground #000000
+    cursor #000000
+    selection_background #000000
+    color0 #000000
+    color8 #555753
+    color1 #cc0000
+    color9 #ef2929
+    color2 #4e9a06
+    color10 #8ae234
+    color3 #c4a000
+    color11 #fce94f
+    color4 #3465a4
+    color12 #729fcf
+    color5 #75507b
+    color13 #ad7fa8
+    color6 #06989a
+    color14 #34e2e2
+    color7 #d3d7cf
+    color15 #eeeeec
+    selection_foreground #ffffff
   '';
 }
