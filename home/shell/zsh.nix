@@ -5,7 +5,7 @@
     autocd = true;
     enableCompletion = true;
     syntaxHighlighting = {
-      enable = true;
+      enable = false;
       styles = {
         command = "fg=white";
         builtin = "fg=white";
