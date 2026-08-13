@@ -8,14 +8,14 @@
 let
   naiveproxyPkg = pkgs.stdenv.mkDerivation rec {
     pname = "naiveproxy";
-    version = "143.0.7499.109-2";
+    version = "150.0.7871.63-1";
     src = pkgs.fetchurl (
       pkgs.lib.attrByPath [ pkgs.stdenv.hostPlatform.system ]
         (throw "naiveproxy.nix: unsupported system ${pkgs.system}")
         {
           "x86_64-linux" = {
             url = "https://github.com/klzgrad/naiveproxy/releases/download/v${version}/naiveproxy-v${version}-linux-x64.tar.xz";
-            hash = "sha256-bFy8TAHns1MlUudhdHrnFi0K9KraTEiH86W7WwMpJfc=";
+            hash = "sha256-DE9QbOZqeIGJL9aTK1QsU/wGrCNRmHdWCWxh51PGh78=";
           };
         }
     );
