@@ -10,11 +10,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1786115979,
-        "narHash": "sha256-gk3f3YANIyrvJSxamvrME8dQhTtOeKfnSta5IBTBtfk=",
+        "lastModified": 1786622379,
+        "narHash": "sha256-d953csIf38JIlQ0hpofVpznz72tXmihrrDFRnNKLtXM=",
         "owner": "strtab",
         "repo": "aether",
-        "rev": "511ec1a2ab93c93a6c09114340192d5c8a73f9f0",
+        "rev": "732233fb34f6ddc815041fca95289d907336b753",
         "type": "github"
       },
       "original": {
@@ -139,16 +139,18 @@
     "dotfiles": {
       "flake": false,
       "locked": {
-        "path": ".",
-        "type": "path"
+        "lastModified": 1786115979,
+        "narHash": "sha256-gk3f3YANIyrvJSxamvrME8dQhTtOeKfnSta5IBTBtfk=",
+        "owner": "strtab",
+        "repo": "aether",
+        "rev": "511ec1a2ab93c93a6c09114340192d5c8a73f9f0",
+        "type": "github"
       },
       "original": {
-        "path": ".",
-        "type": "path"
-      },
-      "parent": [
-        "aether"
-      ]
+        "owner": "strtab",
+        "repo": "aether",
+        "type": "github"
+      }
     },
     "flake-compat": {
       "flake": false,
