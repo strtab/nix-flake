@@ -11,7 +11,6 @@
       # package = pkgs.googlesans-code;
       name = "family='GeistMono Nerd Font'";
       package = pkgs.nerd-fonts.geist-mono;
-      # size = 16;
     };
     shellIntegration.enableZshIntegration = true;
     shellIntegration.mode = "no-cursor";
@@ -43,11 +42,12 @@
     # vim:ft=kitty
 
     foreground                      #bcb7aa
-    background                      #000000
+    background                      #100f0f
     selection_foreground            #c8c093
     selection_background            #2d4f67
 
-    cursor                          #929292
+    cursor                          #FFFCF0
+    cursor_text_color               #100F0F
 
     url_color                       #72a7bc
 
