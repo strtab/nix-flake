@@ -7,5 +7,6 @@ let
 in
 {
   "secrets/naiveproxy.age".publicKeys = systems ++ users;
+  "secrets/hysteria.age".publicKeys = systems ++ users;
   "secrets/git-credentials.age".publicKeys = systems ++ users;
 }
