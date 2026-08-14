@@ -9,7 +9,7 @@
     font = {
       # name = "family='Google Sans Code' variable_name=GoogleSansCode wght=440 MONO=1";
       # package = pkgs.googlesans-code;
-      name = "family='GeistMono Nerd Font Mono' style=Medium-ss09";
+      name = "family='GeistMono Nerd Font'";
       package = pkgs.nerd-fonts.geist-mono;
       # size = 16;
     };
