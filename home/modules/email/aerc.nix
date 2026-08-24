@@ -23,12 +23,6 @@
     icon-signed-encrypted=✔
     icon-unknown=✘
     icon-invalid=⚠
-    # icon-new=✨
-    # icon-attachment=📎
-    # icon-old=🕰️
-    # icon-replied=📝
-    # icon-flagged=🚩
-    # icon-deleted=🗑️
 
     [viewer]
     alternatives=text/plain,text/html
@@ -53,7 +47,7 @@
     mail-received=notify-send "[$AERC_ACCOUNT/$AERC_FOLDER] New mail from $AERC_FROM_NAME" "$AERC_SUBJECT"
   '';
   home.file."${config.xdg.configHome}/aerc/stylesets/kanagawa".text = ''
-    title.bg=#938aa9
+    title.bg=#16161d
 
     title.fg=black
     title.bold=true
@@ -64,17 +58,17 @@
     border.fg=#4e4e4e
 
     tab.bg=#16161d
-    tab.fg=#393836
-    tab.selected.fg=#c5c9c5
+    tab.fg=#727169
+    tab.selected.fg=#a59a84
     tab.selected.bg=#1f1f28
     tab.selected.bold=false
 
-    dirlist*.selected.bg=#44475A
-    dirlist*.selected.fg=#bcb7aa
+    dirlist*.selected.bg=#1f1f28
+    dirlist*.selected.fg=#a59a84
     dirlist*.selected.bold=false
 
-    stack*.selected.bg=#44475A
-    stack*.selected.fg=#bcb7aa
+    stack*.selected.bg=#1f1f28
+    stack*.selected.fg=#a59a84
     stack*.selected.bold=false
 
     *error.bold=true
@@ -82,7 +76,8 @@
     *warning.fg=#e6c384
     *success.fg=#76946a
 
-    statusline_default.bg=#000000
+    statusline_default.bg=#16161d
+    statusline_default.fg=#8f8473
     statusline_error.fg=#e82424
 
     part_*.selected.bg=#1f1f28
