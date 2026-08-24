@@ -1,6 +1,5 @@
 {
   imports = [
-    ./diff-so-fancy.nix
     ./environments.nix
     ./aliases.nix
     ./zoxide.nix
