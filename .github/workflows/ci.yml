@@ -20,6 +20,8 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Clean Up Disk Space
         run: |
@@ -43,8 +45,17 @@ jobs:
           name: strtab-nixos-flake
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
+      - name: Flake update
+        run: nix flake update --print-build-logs
+
       - name: Flake check
         run: nix flake check --print-build-logs
 
       - name: Build
         run: nix run nixpkgs#nixos-rebuild -- build --flake .#moonveil --print-build-logs
+
+      - name: Commit changes
+        uses: devops-infra/action-commit-push@v1.5.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "CI workflow"
