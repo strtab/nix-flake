@@ -42,12 +42,7 @@
     # vim:ft=kitty
 
     foreground                      #bcb7aa
-    background                      #100f0f
-    selection_foreground            #c8c093
-    selection_background            #2d4f67
-
-    cursor                          #FFFCF0
-    cursor_text_color               #100F0F
+    background                      #050505
 
     url_color                       #72a7bc
 
