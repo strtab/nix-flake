@@ -31,20 +31,32 @@
   environment.pathsToLink = [ "/share/zsh" ];
 
   environment.systemPackages = with pkgs; [
-    uutils-coreutils-noprefix
-    usbutils
     ripgrep
-    hwinfo
-    pstree
-    ffmpeg
-    ntfs3g
     neovim
     tree
-    lsof
     git
     xxd
     fd
     jq
+    pv
+
+    # system
+    uutils-coreutils-noprefix
+    usbutils
+    hwinfo
+    pstree
+
+
+    # fs/files
+    smartmontools # smartctl
+    e2fsprogs
+    ntfs3g
+    lsof
+
+    # media utils
+    ffmpeg
+    yt-dlp
+    ytmdl
 
     # arcivers
     p7zip
