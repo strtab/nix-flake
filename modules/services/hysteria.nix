@@ -46,7 +46,7 @@ in
   options.modules.services.hysteria = {
     enable = lib.mkEnableOption "hysteria client";
 
-    setVariables = lib.mkEnableOption "Use environment variables" // {
+    setVariables = lib.mkEnableOption "Set environment variables for automatic use of the proxy client by applications" // {
       default = true;
     };
 
@@ -75,13 +75,8 @@ in
       description = "hysteria client";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
-
-      # LoadCredential is read by systemd (running as root) and re-exposed
-      # to the service in a private, service-owned directory. This works
-      # regardless of the source file's ownership/permissions, so it plays
-      # nicely with DynamicUser and a root-owned agenix secret alike.
       serviceConfig = {
-        ExecStart = "${hysteriaPkg}/bin/hysteria";
+        ExecStart = "${hysteriaPkg}/bin/hysteria -l warn --disable-update-check -c /etc/hysteria/config.yaml";
         Restart = "on-failure";
         RestartSec = "3s";
         DynamicUser = true;
@@ -107,7 +102,7 @@ in
 
     age.secrets.hysteria = lib.mkIf cfg.useSecrets {
       file = "${inputs.self}/secrets/hysteria.age";
-      path = "/etc/hysteria/config";
+      path = "/etc/hysteria/config.yaml";
       symlink = false;
       mode = "444";
     };
@@ -116,12 +111,12 @@ in
     # Existing file is never overwritten, so local edits survive rebuilds.
     system.activationScripts.hysteriaConfig = lib.mkIf (!cfg.useSecrets) (
       let
-        configFile = pkgs.writeText "config" cfg.configDefault;
+        configFile = pkgs.writeText "config.yaml" cfg.configDefault;
       in
       ''
         mkdir -p /etc/hysteria
-        if [[ ! -f /etc/hysteria/config ]]; then
-          cp ${configFile} /etc/hysteria/config
+        if [[ ! -f /etc/hysteria/config.yaml ]]; then
+          cp ${configFile} /etc/hysteria/config.yaml
         fi
       ''
     );
