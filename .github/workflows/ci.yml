@@ -14,7 +14,6 @@ jobs:
             experimental-features = nix-command flakes
 
       - name: Flake format check
-        continue-on-error: true
         run: nix run nixpkgs#nixfmt-tree -- --ci
 
   build:
