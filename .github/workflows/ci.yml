@@ -58,4 +58,4 @@ jobs:
         uses: devops-infra/action-commit-push@v1.5.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: "CI workflow"
+          commit_message: "[CI] update lock file"
