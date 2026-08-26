@@ -8,11 +8,12 @@
   config = lib.mkMerge [
     (lib.mkIf config.var.git.enable {
       home.shellAliases = {
-        "gl" = "git l";
-        "gla" = "git la";
-        "gld" = "git ld";
+        "gl" = "git -P lao -n 10";
+        "gla" = "git lao";
+        "gld" = "git lad";
         "ga" = "git add";
-        "gs" = "git status";
+        "gs" = "git s";
+        "gsa" = "git sa";
         "gc" = "git commit";
         "gcl" = "git clone --depth 1 --recursive";
         "gr" = "git restore --staged";
