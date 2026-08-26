@@ -38,8 +38,7 @@
     text/calendar=calendar
     message/delivery-status=colorize
     message/rfc822=colorize
-    text/html=! html2text -nobs | less
-    image/*=! exiftool -G1 ~/Pictures/Common/cpp.png | grep -viE 'system|exiftool'
+    text/html=! html2text -utf8 -bs -width 100 | less
 
     .headers=colorize
 
@@ -55,7 +54,7 @@
     header.bold=true
     header.fg=#938aa9
 
-    border.fg=#4e4e4e
+    border.fg=black
 
     tab.bg=#16161d
     tab.fg=#727169
@@ -83,14 +82,16 @@
     part_*.selected.bg=#1f1f28
     part_*.fg=#bcb7aa
 
-    msglist_unread.fg=#bcb7aa
+    msglist_read.fg=#8f8473
+    msglist_unread.fg=#aca79a
     msglist_unread.bold=true
     msglist_deleted.fg=#666666
-    msglist_*.selected.bg=#44475A
+    msglist_*.selected.bg=#1f1f28
+    msglist_flagged.fg=#bcb7aa
     msglist_marked.fg=black
-    msglist_marked.selected.fg=black
-    msglist_marked.bg=#938aa9
-    msglist_marked.selected.bg=#957fb8
+    msglist_marked.bg=#363646
+    msglist_marked.selected.bg=#363646
+    msglist_marked.selected.fg=#1f1f28
 
     completion_pill.reverse=false
     selector_focused.bold=false
@@ -139,8 +140,6 @@
     <C-z> = :suspend<Enter>
 
     [messages]
-    q = :quit<Enter>
-
     j = :next<Enter>
     <Down> = :next<Enter>
     <C-d> = :next 50%<Enter>
@@ -225,7 +224,7 @@
     q = :close<Enter>
     O = :open<Enter>
     o = :open<Enter>
-    S = :save<space>
+    S = :save<Enter>
     | = :pipe<space>
     D = :delete<Enter>
     A = :archive flat<Enter>
