@@ -46,7 +46,6 @@
     hwinfo
     pstree
 
-
     # fs/files
     smartmontools # smartctl
     e2fsprogs

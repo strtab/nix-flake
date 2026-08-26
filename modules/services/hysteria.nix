@@ -46,9 +46,11 @@ in
   options.modules.services.hysteria = {
     enable = lib.mkEnableOption "hysteria client";
 
-    setVariables = lib.mkEnableOption "Set environment variables for automatic use of the proxy client by applications" // {
-      default = true;
-    };
+    setVariables =
+      lib.mkEnableOption "Set environment variables for automatic use of the proxy client by applications"
+      // {
+        default = true;
+      };
 
     useSecrets = lib.mkEnableOption "Use secret file for hysteria";
 
@@ -94,7 +96,7 @@ in
     '';
 
     environment.sessionVariables = lib.mkIf cfg.setVariables {
-      SOCKS_SERVER = "localhost:1080";
+      SOCKS_SERVER = "127.0.0.1:1080";
       SOCKS_VERSION = "5";
       http_proxy = "http://127.0.0.1:8080";
       https_proxy = "http://127.0.0.1:8080";
