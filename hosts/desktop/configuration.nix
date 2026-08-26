@@ -13,9 +13,10 @@
   modules = {
     common.enable = true;
     plasma.enable = true;
+    games.enable = true;
     vial.enable = true;
     services = {
-      naiveproxy = {
+      hysteria = {
         useSecrets = true;
         enable = true;
       };
