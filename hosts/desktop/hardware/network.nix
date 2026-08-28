@@ -45,6 +45,7 @@
     inetutils
     dnsutils
     curlFull
+    sshfs
     rsync
     wget
     nmap
