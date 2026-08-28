@@ -48,8 +48,10 @@
 
     # fs/files
     smartmontools # smartctl
+    exfatprogs
     e2fsprogs
     ntfs3g
+    exfat
     lsof
 
     # media utils
