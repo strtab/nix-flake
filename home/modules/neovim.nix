@@ -12,7 +12,7 @@
     yaml-language-server
     lua-language-server
     gopls # golang lsp
-    roslyn-ls # csharp lsp
+    # roslyn-ls # csharp lsp
     nixfmt # nix formatter
     nil # nix lsp
   ];
