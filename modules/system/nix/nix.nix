@@ -40,7 +40,7 @@
         warn-dirty = false
       '';
       settings = {
-        download-buffer-size = 262144000; # 250 MB (250 * 1024 * 1024)
+        download-buffer-size = 52428800; # 50 MB
         auto-optimise-store = true; # Automatically optimize the Nix store after garbage collection
         experimental-features = [
           "nix-command"
