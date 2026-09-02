@@ -18,7 +18,7 @@
   ];
   home.activation.cloneNeovimDots = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-      $DRY_RUN_CMD ${pkgs.git}/bin/git clone --depth 1 --recursive $VERBOSE_ARG \
+      $DRY_RUN_CMD ${pkgs.git}/bin/git clone --depth 1 $VERBOSE_ARG \
         https://github.com/strtab/nvim-config.git "${config.home.homeDirectory}/.config/nvim"
     fi
   '';
