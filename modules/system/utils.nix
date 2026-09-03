@@ -43,6 +43,7 @@
     # system
     uutils-coreutils-noprefix
     usbutils
+    pciutils
     hwinfo
     pstree
 
