@@ -7,14 +7,13 @@
   };
   home.packages = with pkgs; [
     html2text
-    exiftool
   ];
   home.file."${config.xdg.configHome}/aerc/aerc.conf".text = ''
     [general]
     default-save-path=~/Downloads
 
     [ui]
-    styleset-name=kanagawa
+    styleset-name=clean
     fuzzy-complete=true
 
     icon-unencrypted=
@@ -38,84 +37,25 @@
     text/calendar=calendar
     message/delivery-status=colorize
     message/rfc822=colorize
-    text/html=! html2text -utf8 -bs -width 100 | less
+    text/html=! html2text -ansi -links -width \$\{COLUMNS:-80\} | less
 
     .headers=colorize
 
     [hooks]
     mail-received=notify-send "[$AERC_ACCOUNT/$AERC_FOLDER] New mail from $AERC_FROM_NAME" "$AERC_SUBJECT"
   '';
-  home.file."${config.xdg.configHome}/aerc/stylesets/kanagawa".text = ''
-    title.bg=#16161d
+  home.file."${config.xdg.configHome}/aerc/stylesets/clean".text = ''
+    *.default=true
+    *.normal=true
 
-    title.fg=black
-    title.bold=true
+    border.fg = 232
+    *.selected.bold = true
+    *.selected.bg = 234
+    *.selected.fg = 15
 
-    header.bold=true
-    header.fg=#938aa9
-
-    border.fg=black
-
-    tab.bg=#16161d
-    tab.fg=#727169
-    tab.selected.fg=#a59a84
-    tab.selected.bg=#1f1f28
-    tab.selected.bold=false
-
-    dirlist*.selected.bg=#1f1f28
-    dirlist*.selected.fg=#a59a84
-    dirlist*.selected.bold=false
-
-    stack*.selected.bg=#1f1f28
-    stack*.selected.fg=#a59a84
-    stack*.selected.bold=false
-
-    *error.bold=true
-    *error.fg=#e82424
-    *warning.fg=#e6c384
-    *success.fg=#76946a
-
-    statusline_default.bg=#16161d
-    statusline_default.fg=#8f8473
-    statusline_error.fg=#e82424
-
-    part_*.selected.bg=#1f1f28
-    part_*.fg=#bcb7aa
-
-    msglist_read.fg=#8f8473
-    msglist_unread.fg=#aca79a
-    msglist_unread.bold=true
-    msglist_deleted.fg=#666666
-    msglist_*.selected.bg=#1f1f28
-    msglist_flagged.fg=#bcb7aa
-    msglist_marked.fg=black
-    msglist_marked.bg=#363646
-    msglist_marked.selected.bg=#363646
-    msglist_marked.selected.fg=#1f1f28
-
-    completion_pill.reverse=false
-    selector_focused.bold=false
-    selector_focused.bg=#44475A
-    selector_focused.fg=#bcb7aa
-    selector_chooser.bold=false
-    selector_chooser.bg=#44475A
-    selector_chooser.fg=#bcb7aa
-    default.selected.bold=false
-    default.selected.fg=#bcb7aa
-    default.selected.bg=#44475A
-
-    completion_default.bg=#2a2a37
-    completion_default.selected.bg=#363646
-    completion_default.selected.fg=#bcb7aa
-    completion_description.bg=#2a2a37
-    completion_description.selected.bg=#363646
-    completion_description.selected.fg=#bcb7aa
-    completion_gutter.bg=#2a2a37
-    completion_gutter.selected.bg=#363646
-    completion_gutter.selected.fg=#bcb7aa
-    completion_pill.bg=#2a2a37
-    completion_pill.selected.bg=#363646
-    completion_pill.selected.fg=#bcb7aa
+    [viewer]
+    *.default=true
+    *.normal=true
   '';
   home.file."${config.xdg.configHome}/aerc/map.conf".text = ''
     Inbox=tag:inbox
@@ -137,6 +77,7 @@
     ? = :help keys<Enter>
     <C-c> = :quit<Enter>
     <C-q> = :quit<Enter>
+    <C-w>q = :quit<Enter>
     <C-z> = :suspend<Enter>
 
     [messages]
