@@ -18,6 +18,7 @@
 
   options = {
     # Create "var" option witch can contain any variables.
+    # Do not touch it, it needed for properly work.
     var = lib.mkOption {
       type = lib.types.attrs;
       default = { };
