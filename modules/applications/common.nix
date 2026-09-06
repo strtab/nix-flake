@@ -22,7 +22,6 @@
       nomacs # Image viewer
       haruna # Video viewer
 
-      # google-chrome # Browser
       inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
 
       onlyoffice-desktopeditors # Office package
