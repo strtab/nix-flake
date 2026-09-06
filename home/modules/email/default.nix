@@ -1,11 +1,13 @@
-{ ... }:
+{ config, ... }:
+let
+  maildir = "${config.home.homeDirectory}/.local/share/mail";
+in
 {
-  home.sessionVariables = {
-    MAILDIR = "$HOME/.local/mail/";
-  };
+  home.sessionVariables.MAILDIR = "${maildir}/";
+
   imports = [
     ./aerc.nix
-    ./mbsync.nix
+    ./isync.nix
     ./notmuch.nix
     ./goimapnotify.nix
   ];

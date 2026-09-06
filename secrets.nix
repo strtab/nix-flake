@@ -9,4 +9,8 @@ in
   "secrets/naiveproxy.age".publicKeys = systems ++ users;
   "secrets/hysteria.age".publicKeys = systems ++ users;
   "secrets/git-credentials.age".publicKeys = systems ++ users;
+  "secrets/mail/goimapnotify.age".publicKeys = systems ++ users;
+  "secrets/mail/aerc-accounts.age".publicKeys = systems ++ users;
+  "secrets/mail/isyncrc.age".publicKeys = systems ++ users;
+  "secrets/mail/notmuch.age".publicKeys = systems ++ users;
 }

@@ -163,6 +163,7 @@
     [view]
     / = :toggle-key-passthrough<Enter>/
     q = :close<Enter>
+    <C-w>q = :close<Enter>
     O = :open<Enter>
     o = :open<Enter>
     S = :save<Enter>
