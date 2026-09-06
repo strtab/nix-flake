@@ -81,26 +81,28 @@
   home.file."${config.xdg.configHome}/kitty/light-theme.auto.conf".text = ''
     # vim:ft=kitty
 
-    background #ffffff
-    foreground #000000
-    cursor #000000
-    selection_background #000000
-    color0 #000000
-    color8 #555753
-    color1 #cc0000
-    color9 #ef2929
-    color2 #4e9a06
-    color10 #8ae234
-    color3 #c4a000
-    color11 #fce94f
-    color4 #3465a4
-    color12 #729fcf
-    color5 #75507b
-    color13 #ad7fa8
-    color6 #06989a
-    color14 #34e2e2
-    color7 #d3d7cf
-    color15 #eeeeec
+    background #fcfcfc
+    foreground #111111
+
+    cursor  #e8dffd
+    selection_background #e8dffd
     selection_foreground #ffffff
+
+    color0  #100F0F
+    color8  #6F6E69
+    color1  #D14D41
+    color9  #AF3029
+    color2  #879A39
+    color10 #66800B
+    color3  #D0A215
+    color11 #AD8301
+    color4  #4385BE
+    color12 #205EA6
+    color5  #CE5D97
+    color13 #A02F6F
+    color6  #3AA99F
+    color14 #24837B
+    color7  #FFFCF0
+    color15 #F2F0E5
   '';
 }
