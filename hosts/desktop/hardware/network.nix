@@ -13,7 +13,7 @@
   # networking.interfaces.enp14s0.useDHCP = lib.mkDefault true;
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = false;
+  services.openssh.enable = true;
 
   networking = {
     hostName = config.var.hostname;
